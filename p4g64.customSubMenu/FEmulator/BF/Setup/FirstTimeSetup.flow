@@ -64,31 +64,28 @@ void MenuOptions()
 
 			if (!pageNum)
 			{
-				mask = 6080;
-				SEL_CHK_PAD(10, 11);
-				SEL_CHK_PAD(11, 11);
-				SEL_CHK_PAD(5, 11);
-				SEL_CHK_PAD(7, 11);
+				mask = 1504;
+				SEL_CHK_PAD(10, 9);
+				SEL_CHK_PAD(11, 9);
+				SEL_CHK_PAD(5, 9);
+				SEL_CHK_PAD(7, 9);
 			}
 			else
 			{
-				mask = 2111;
-				SEL_CHK_PAD(10, 12);
-				SEL_CHK_PAD(11, 12);
-				SEL_CHK_PAD(5, 12);
-				SEL_CHK_PAD(7, 12);
+				mask = 543;
+				SEL_CHK_PAD(10, 10);
+				SEL_CHK_PAD(11, 10);
+				SEL_CHK_PAD(5, 10);
+				SEL_CHK_PAD(7, 10);
 			}
 
 			//Toggle selection or read more about it
 			int selection = ADV_SEL(SquareMenuOptions_Text + pageNum, SquareMenuOptions, mask);
-			if (selection < 11)
+			if (selection < 9)
 			{
-				if (selection > 8) // Scheduler mods have a different range of flags (6340+)
-					ToggleOption(ModMenu_About, 6332, selection, false);
-				else
-					ToggleOption(ModMenu_About, 6321, selection, false);
+				ToggleOption(ModMenu_About, 6321, selection, false);
 			}
-			else if (selection == 11 || selection == 12)
+			else if (selection == 9 || selection == 10)
 			{
 				pageNum = !pageNum;
 			}
@@ -128,11 +125,6 @@ bool ToggleOption(int startMsg, int startFlag, int selection, bool subOption)
 		{
 			CLOSE_MSG_WIN();
 			FindAFriendOptionsToggle();
-		}
-		else if (selection == 9)
-		{
-			CLOSE_MSG_WIN();
-			RemoveEventsOptionsToggle();
 		}
 		break;
 	case 1: //off
@@ -179,24 +171,12 @@ void FindAFriendOptionsToggle()
 		{
 			OPEN_MSG_WIN();
 			MSG(SPOILER_TOGGLE);
-			SEL_CHK_PAD(14, 2);
+			SEL_CHK_PAD(14, 1);
 			int sel = SEL(ToggleMenu);
 			if (sel == 0)
 				BIT_ON(5678);
 			else if (sel == 1)
 				BIT_OFF(5678);
-			CLOSE_MSG_WIN();
-		}
-		else if (selection == 1)
-		{
-			OPEN_MSG_WIN();
-			MSG(RemoveInvitations_About);
-			SEL_CHK_PAD(14, 2);
-			int sel = SEL(ToggleMenu);
-			if (sel == 0)
-				BIT_ON(6340);
-			else if (sel == 1)
-				BIT_OFF(6340);
 			CLOSE_MSG_WIN();
 		}
 		else
@@ -269,32 +249,6 @@ void DungeonOptionsToggle()
 					}
 				}
 			}
-		}
-		else
-		{
-			done = true;
-		}
-	}
-}
-
-void RemoveEventsOptionsToggle()
-{
-	//Toggle options until done
-	bool done = false;
-	while (!done)
-	{
-		//Set message variables for menu options
-		for (int i = 0; i < 4; i++)
-		{
-			SET_MSG_VAR(i, 619 + BIT_CHK(6350 + i), 6);
-		}
-		SEL_CHK_PAD(14, 4);
-		SEL_CHK_PAD(15, 4);
-		//Toggle selection or read more about it
-		int selection = ADV_SEL(RemoveEventsOptions_Text, RemoveEventsOptions, 0);
-		if (selection != 4)
-		{
-			ToggleOption(RemoveCamping_About, 6350, selection, true);
 		}
 		else
 		{

@@ -29,8 +29,6 @@
 [f 0 5 -258][f 2 1]Game Over Skip: [f 2 4 6][e]
 [f 0 5 -258][f 2 1]Reap-Balanced Encounters: [f 2 4 7][e]
 [f 0 5 -258][f 2 1]Default Direct Commands: [f 2 4 8][e]
-[f 0 5 -258][f 2 1]Remove Events: [f 2 4 9][e]
-[f 0 5 -258][f 2 1]Save Everyday: [f 2 4 10][e]
 [f 0 5 -258][f 2 1]Next[e]
 [f 0 5 -258][f 2 1]Previous[e]
 
@@ -84,40 +82,6 @@
 [n]"Direct Commands" by default, saving you the time
 [n]spent changing it yourself.[e]
 
-[msg RemoveEvents_About[Remove Events (AnimatedSwine37)]]
-[f 0 5 -258][f 2 1]Remove the Hot Springs, Camping Trip, Culture 
-[n]Festival etc. If "On", you can configure each
-[n]event individually to suit your preferences.[e]
-
-[msg SaveEveryday_About[Save Everyday (AnimatedSwine37)]]
-[f 0 5 -258][f 2 1]If "On", you will be presented with the save prompt
-[n]automatically at the beginning of every day.[e]
-
-[msg RemoveEventsOptions_Text]
-[f 0 5 -258][f 2 1]Remove Events Options[e]
-
-[sel RemoveEventsOptions]
-[f 0 5 -258][f 2 1]Remove Camping Trip: [f 2 4 0][e]
-[f 0 5 -258][f 2 1]Remove Cross Dressing: [f 2 4 1][e]
-[f 0 5 -258][f 2 1]Remove Group Date Cafe: [f 2 4 2][e]
-[f 0 5 -258][f 2 1]Remove Hotsprings Event: [f 2 4 3][e]
-[f 0 5 -258][f 2 1]Done[e]
-
-[msg RemoveCamping_About[Camping (AnimatedSwine37)]]
-[f 0 5 -258][f 2 1]Remove the entire camping trip.[e]
-
-[msg RemoveCrossDress_About[Cross Dressing (AnimatedSwine37)]]
-[f 0 5 -258][f 2 1]Remove the cross dressing competition
-[n]from the culture festival.[e]
-
-[msg RemoveGroupDate_About[Group Date (AnimatedSwine37)]]
-[f 0 5 -258][f 2 1]Remove the group date cafe
-[n]from the cultre festival.[e]
-
-[msg RemoveHotsprings_About[Hotsprings (AnimatedSwine37)]]
-[f 0 5 -258][f 2 1]Remove the hotsprings event where
-[n]the guys get abused.[e]
-
 [msg DungeonOptions_Text]
 [f 0 5 -258][f 2 1]Dungeon Options[e]
 
@@ -153,17 +117,11 @@
 
 [sel FindAFriendOptions]
 [f 0 5 -258][f 2 1]Spoiler-Free Mode: [f 2 4 0][e]
-[f 0 5 -258][f 2 1]Remove Invites: [f 2 4 1][e]
 [f 0 5 -258][f 2 1]Done[e]
 
 [msg SPOILER_TOGGLE[FindAFriend (AnimatedSwine37)]]
 [f 0 5 -258][f 2 1]If "On", only Social Links you have discovered
 [n]and initiated Rank 1 with will be shown.[e]
-
-[msg RemoveInvitations_About[Remove Invites (AnimatedSwine37)]]
-[f 0 5 -258][f 2 1]Removes the redundant lunchtime invitation scenes
-[n]that play when a Social Link is available to rank-up.
-[n]It's recommended to enable this with "Find a Friend".[e]
 
 [msg IntroSkipConfig]
 [f 0 5 -258][f 2 1][f 0 1 1]Prologue Skip Setup[n]
