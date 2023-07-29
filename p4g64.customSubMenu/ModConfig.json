@@ -1,0 +1,21 @@
+{
+  "ModId": "p4g64.customSubMenu",
+  "ModName": "Custom Sub Menu",
+  "ModAuthor": "AnimatedSwine37, Tekka, ShrineFox",
+  "ModVersion": "1.0.0",
+  "ModDescription": "Adds a variety of new functions to P4G's sub menu!",
+  "ModDll": "p4g64.customSubMenu.dll",
+  "ModIcon": "Preview.png",
+  "ModR2RManagedDll32": "x86/p4g64.customSubMenu.dll",
+  "ModR2RManagedDll64": "x64/p4g64.customSubMenu.dll",
+  "ModNativeDll32": "",
+  "ModNativeDll64": "",
+  "IsLibrary": false,
+  "ReleaseMetadataFileName": "p4g64.customSubMenu.ReleaseMetadata.json",
+  "PluginData": {},
+  "IsUniversalMod": false,
+  "ModDependencies": [ "p5rpc.modloader" ],
+  "OptionalDependencies": [],
+  "SupportedAppId": ["p4g.exe"],
+  "ProjectUrl": ""
+}
