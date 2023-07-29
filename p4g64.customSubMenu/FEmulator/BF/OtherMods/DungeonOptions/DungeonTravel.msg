@@ -8,10 +8,10 @@
 [f 0 5 -258][f 2 1]Which floor?[e]
 
 [sel ENTRANCE_SEL_HOOK]
-[f 0 5 -258][f 2 1]Return to the entrance[e]
 [f 0 5 -258][f 2 1]Select floor[e]
 [f 0 5 -258][f 2 1]Organize party[e]
 [f 0 5 -258][f 2 1]Save[e]
+[f 0 5 -258][f 2 1]Return to the entrance[e]
 [f 0 5 -258][f 2 1]Cancel[e]
 
 [sel DUNGEON_SEL_HOOK]
