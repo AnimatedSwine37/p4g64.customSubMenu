@@ -55,7 +55,11 @@ tryagain:
 	{
 		int digit = SelectDigit(helpText);
 		if (digit == -1)
-			return -1;
+		{
+			if(i == 0)
+				return -1;
+			break;
+		}
 		number *= 10;
 		number += digit;
 	}
