@@ -12,6 +12,7 @@ import("OrganizeParty.flow");
 import("DungeonTravel.flow");
 import("GohoM.flow");
 import("Fox.flow");
+import("DungeonEnter.flow");
 
 //
 // Script-level variable definitions
@@ -22,21 +23,23 @@ int stratMask;
 // Menu hooks
 void entrance_jump_hook()
 {
+
     int var29 = GET_FLOOR_ID();
+    int dungeon = GetDungeon();
     int mask = 0;
     if (!EnableOrganizeParty() || !BIT_CHK(6324))
-        mask = mask + 2;
-    if (!BeatDungeon() || !BIT_CHK(6324))
-        mask = mask + 1;
-    if (!BIT_CHK(6326) || saveAnywhere())
         mask = mask + 4;
+    if (!BeatDungeon() || !BIT_CHK(6324))
+        mask = mask + 2;
+    if (!BIT_CHK(6326) || saveAnywhere())
+        mask = mask + 8;
     PLAY_SYS_SOUNDEFFECT(0, 3);
-    SEL_CHK_PAD(14, 4);
+    SEL_CHK_PAD(14, 5);
     if (!BIT_CHK(6321))
         SEL_CHK_PAD(12, 18);
-    int var27 = ADV_SEL(15, ENTRANCE_SEL_HOOK, mask);
+    int selectedOption = ADV_SEL(15, YukikoEntranceSel + dungeon, mask);
 
-    if (var27 == 3)
+    if (selectedOption == 4)
     {
 
         if (GET_MONTH() == 4 && GET_DAY_OF_MONTH() == 17)
@@ -50,17 +53,21 @@ void entrance_jump_hook()
             return_tv_studio();
         }
     }
-    else if (var27 == 0)
+    else if(selectedOption == 0)
+    {
+        EnterDungeon();
+    }
+    else if (selectedOption == 1)
     {
         SelectFloor();
     }
-    else if (var27 == 1)
+    else if (selectedOption == 2)
     {
         OrganizeParty();
     }
-    else if (var27 == 2)
+    else if (selectedOption == 3)
         NS_SAVE();
-    else if (var27 == 18)
+    else if (selectedOption == 18)
     {
         MenuOptions();
         options = true;
@@ -196,7 +203,7 @@ _100:
             goto_stair();
             return;
         }
-        else if (var33 == 7 || var33 == 8)
+        else if (var33 == 7 || (var33 == 10 && (!BIT_CHK(6331) || !BeatDungeon())))
         {
             CLOSE_MSG_WIN();
             NAVI_BU_CLOSE(sVar7);
@@ -205,7 +212,7 @@ _100:
             return;
         }
         // Select dungeon floor
-        else if (var33 == 9)
+        else if (var33 == 8)
         {
             SelectFloor();
             goto _101;
@@ -215,12 +222,24 @@ _100:
             use_gohom();
             goto _101;
         }
-        else if (var33 == 10)
+        else if (var33 == 9)
         {
             CLOSE_MSG_WIN();
             NAVI_BU_CLOSE(sVar7);
             NS_SAVE();
             goto _101;
+        }
+        else if (var33 == 10)
+        {
+            SEL_CHK_PAD(14, 1);
+            MSG(ReturnConfirmTeddie + BIT_CHK(52));
+            if(SEL(YESNO_SEL) == 0)
+            {
+                ToEntrance();
+            }
+            CLOSE_MSG_WIN();
+            NAVI_BU_CLOSE(sVar7);
+            return;
         }
         else if (var33 == 11)
         {
@@ -332,7 +351,7 @@ void init_sel_mask_hook()
     bool showGohom = BIT_CHK(6332);
     bool showOrganizeParty = BIT_CHK(6333);
     showFloorSelect = showFloorSelect && BeatDungeon();
-    int var34 = GET_FLOOR_ID();
+    int floor = GET_FLOOR_ID();
     sVar0 = 0;
     sVar2 = 63;
     sVar3 = 127;
@@ -449,7 +468,7 @@ _127:
     if (FLD_FUNCTION_0037() == 1 && showFloorSelect == false)
     {
         // Unmask entrance
-        if (var34 == 6 || var34 == 21 || var34 == 41 || var34 == 61 || var34 == 81 || var34 == 101 || var34 == 121 || var34 == 123 || var34 == 141 || var34 == 161)
+        if (floor == 6 || floor == 21 || floor == 41 || floor == 61 || floor == 81 || floor == 101 || floor == 121 || floor == 123 || floor == 141 || floor == 161)
         {
             sVar1 = sVar1 - 256;
         }
@@ -459,6 +478,11 @@ _127:
             sVar1 = sVar1 - 128;
         }
     }
+    else if(showFloorSelect && floor % 20 != 0 && floor != 5)
+    {
+        // Unmask entrance if not at it
+        sVar1 = sVar1 - 256;
+    }
 
     // Hide floor select
     if (!showFloorSelect || !BIT_CHK(6324))
@@ -466,7 +490,7 @@ _127:
     // Hide Goho-M
     if (!showGohom || showFloorSelect || !BIT_CHK(6324) ||
         (FLD_FUNCTION_0037() == 1 &&
-         (var34 == 6 || var34 == 21 || var34 == 41 || var34 == 61 || var34 == 81 || var34 == 101 || var34 == 121 || var34 == 123 || var34 == 141 || var34 == 161)))
+         (floor == 6 || floor == 21 || floor == 41 || floor == 61 || floor == 81 || floor == 101 || floor == 121 || floor == 123 || floor == 141 || floor == 161)))
         sVar1 = sVar1 + 32;
     // Hide OrganizeParty
     if (!EnableOrganizeParty() || !showOrganizeParty || !BIT_CHK(6324))
