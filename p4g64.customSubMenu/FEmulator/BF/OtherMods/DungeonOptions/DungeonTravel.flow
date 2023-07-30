@@ -311,12 +311,18 @@ bool BeatDungeon()
 			return CHECK_TIME_SPAN(6, 5, 3, 30);
 		case Dungeon.Rise:
 			return CHECK_TIME_SPAN(7, 10, 3, 30);
+		case Dungeon.Mitsuo:
+			return CHECK_TIME_SPAN(8, 13, 3, 30);
 		case Dungeon.Naoto:
 			return CHECK_TIME_SPAN(10, 6, 3, 30);
 		case Dungeon.Nanako:
 			return CHECK_TIME_SPAN(11, 21, 3, 30);
 		case Dungeon.Adachi:
 			return CHECK_TIME_SPAN(12, 25, 3, 30);
+		case Dungeon.Marie:
+			return false;
+		case Dungeon.Izanami:
+			return false;
 	}
 	return false;
 }
@@ -346,6 +352,12 @@ int GetDungeon()
 	
 	else if (floor >= 120 && floor < 130)
 		return Dungeon.Adachi;
+	
+	else if (floor >= 140 && floor < 150)
+		return Dungeon.Izanami;
+
+	else if (floor >= 160 && floor <= 170)
+		return Dungeon.Marie;
 	
 	return -1;
 }
