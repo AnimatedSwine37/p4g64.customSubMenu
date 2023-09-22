@@ -95,3 +95,10 @@ an item that can return it to safety.[n][f 1 1][e]
 
 [msg FOX_CALL_2]
 [f 0 5 -258][f 2 1]> ...![n][f 1 1][e]
+
+[msg FOX_HELP]
+[s]You can now ask the fox for healing, both[n]
+here at the entrance and [clr 2]within dungeons[clr 0].[n][w][e]
+[s]To call the fox within a dungeon,[n]
+speak to your navigator and select[n]
+the [clr 2]Strategize[clr 0] option.[n][w][e]
