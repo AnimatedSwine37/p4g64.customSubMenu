@@ -21,8 +21,8 @@ bool foxReady;
 void generate_hangout_menu()
 {
     // Variables that store the location of the messages and whatnot
-    int localVariable54 = HANG_OUT_MSG;
-    int localVariable55 = HANG_OUT_SEL;
+    int hangOutMsg = HANG_OUT_MSG;
+    int hangOutSel = HANG_OUT_SEL;
 
     // Get the day from 0-6, Sunday-Saturday
     int dayOfWeek;
@@ -32,7 +32,7 @@ void generate_hangout_menu()
     timeOfDay = GET_TIME_OF_DAY();
 
     // Variable to keep track of the page we're on
-    int localVariable120 = 0;
+    int page = 0;
 
     // Set all of the message variables based on whether the link is ready to level up
     SET_MSG_VAR(0, 621 + CHECK_IF_SL_LVLUP(31), 6);
@@ -243,7 +243,7 @@ void generate_hangout_menu()
         SEL_CHK_PAD(7, 28);
     }
 
-    int localVariable56 = ADV_SEL(localVariable54, localVariable55, pageOneMask);
+    int hSelected = ADV_SEL(hangOutMsg, hangOutSel, pageOneMask);
 
     // Field major and minor to make sure you can't tp to the current location
     int fieldMajor = GET_FIELD_MAJOR();
@@ -251,7 +251,7 @@ void generate_hangout_menu()
 
 _choiceLoop:
     // Cancel or see more wasn't chosen
-    if (localVariable56 < 28)
+    if (hSelected < 28)
     {
         // Checks whether the selection should be canceled (for when leaving home for the day)
         int cancelSel = 0;
@@ -266,7 +266,7 @@ _choiceLoop:
         }
 
         // Message that you should tell Dojima about your job if applicable
-        if(localVariable56 != 6 && localVariable56 != 14 && ((BIT_CHK( 0 + 0x0400 + 671 ) == 1 && BIT_CHK( 0 + 0x0400 + 663 ) == 0 && (BIT_CHK( 0 + 0x0400 + 1056 ) == 1 || BIT_CHK( 0 + 0x0400 + 1638 ) == 1 || BIT_CHK( 0 + 0x0400 + 1640 ) == 1)) && timeOfDay == 5 && (BIT_CHK( 0 + 0x0400 + 455 ) || BIT_CHK( 0 + 0x0400 + 439 ))))
+        if(hSelected != 6 && hSelected != 14 && ((BIT_CHK( 0 + 0x0400 + 671 ) == 1 && BIT_CHK( 0 + 0x0400 + 663 ) == 0 && (BIT_CHK( 0 + 0x0400 + 1056 ) == 1 || BIT_CHK( 0 + 0x0400 + 1638 ) == 1 || BIT_CHK( 0 + 0x0400 + 1640 ) == 1)) && timeOfDay == 5 && (BIT_CHK( 0 + 0x0400 + 455 ) || BIT_CHK( 0 + 0x0400 + 439 ))))
         {
             OPEN_MSG_WIN();
             MSG( STOP_OUTDOOR_DOUJIMA_2_1 );
@@ -300,13 +300,13 @@ _choiceLoop:
             }
 
             // Plays the sound effect if you are leaving home
-            else if (fieldMajor == 7 && fieldMinor != 1 && localVariable56 != 6 && localVariable56 != 14 )
+            else if (fieldMajor == 7 && fieldMinor != 1 && hSelected != 6 && hSelected != 14 )
             {
                 PLAY_SOUNDEFFECT( 7 );
             }
 
             // Teleport the player to the desired location depending on who they chose
-            switch (localVariable56)
+            switch (hSelected)
             {
             // Adachi
             case 0:
@@ -1112,7 +1112,7 @@ _choiceLoop:
         }
     }
     // See more was chosen
-    else if (localVariable56 == 28)
+    else if (hSelected == 28)
     {
         // Generate another menu
         SEL_CHK_PAD(14, 29);
@@ -1122,15 +1122,15 @@ _choiceLoop:
 		SEL_CHK_PAD(5, 28);
         SEL_CHK_PAD(7, 28);
         // If you're on page one go to two and vice versa
-        if (localVariable120 == 0)
+        if (page == 0)
         {
-            localVariable120 = 1;
-            localVariable56 = ADV_SEL(localVariable54, localVariable55, pageTwoMask);
+            page = 1;
+            hSelected = ADV_SEL(hangOutMsg, hangOutSel, pageTwoMask);
         }
         else
         {
-            localVariable120 = 0;
-            localVariable56 = ADV_SEL(localVariable54, localVariable55, pageOneMask);
+            page = 0;
+            hSelected = ADV_SEL(hangOutMsg, hangOutSel, pageOneMask);
         }
         // Go back to the choices for round rwo (or more)
         goto _choiceLoop;
