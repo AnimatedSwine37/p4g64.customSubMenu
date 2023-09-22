@@ -19,6 +19,7 @@ import("DungeonEnter.flow");
 //
 
 int stratMask;
+int dngOrderMask;
 
 // Menu hooks
 void entrance_jump_hook()
@@ -29,7 +30,7 @@ void entrance_jump_hook()
     int mask = 0;
     if (!EnableOrganizeParty() || !BIT_CHK(6324))
         mask = mask + 4;
-    if (!BeatDungeon() || !BIT_CHK(6324))
+    if (!BeatDungeon() || !BIT_CHK(6331))
         mask = mask + 2;
     if (!BIT_CHK(6326) || saveAnywhere())
         mask = mask + 8;
@@ -109,7 +110,7 @@ _100:
     int var33 = 0;
 
     // If everything except the strategize and nevermind options are hidden just open the strategize menu
-    if (sVar1 == 2046)
+    if (dngOrderMask == 2046)
     {
         StrategizeMenu();
         goto _101;
@@ -137,7 +138,7 @@ _100:
             SET_MSG_VAR(1, GET_ITEM(2099), 0);
         }
         // Sets mask
-        SET_MASK(sVar1);
+        SET_MASK(dngOrderMask);
         if (!BIT_CHK(6321))
             SEL_CHK_PAD(12, 18);
         SEL_CHK_PAD(14, 11);
@@ -204,7 +205,7 @@ _100:
             goto_stair();
             return;
         }
-        else if (var33 == 7 || (var33 == 10 && (!BIT_CHK(6331) || !BeatDungeon())))
+        else if (var33 == 7)
         {
             CLOSE_MSG_WIN();
             NAVI_BU_CLOSE(sVar7);
@@ -356,15 +357,15 @@ void init_sel_mask_hook()
     sVar0 = 0;
     sVar2 = 63;
     sVar3 = 127;
-    sVar1 = 0;
+    dngOrderMask = 0;
     int var35 = 0;
     stratMask = 0;
 
     // Decide to mask strategize menu
     if (showDungeonOptions)
-        sVar1 = sVar1 + 30;
+        dngOrderMask = dngOrderMask + 30;
     else
-        sVar1 = sVar1 + 1;
+        dngOrderMask = dngOrderMask + 1;
 
 _127:
 
@@ -418,21 +419,21 @@ _127:
         // Hide talk to others and change battle tactics
         // 2 + 16
         if (!showDungeonOptions)
-            sVar1 = sVar1 + 18;
+            dngOrderMask = dngOrderMask + 18;
         else
             stratMask = stratMask + 9;
 
         if (BIT_CHK(0 + 52) == 1)
         {
             if (!showDungeonOptions)
-                sVar1 = sVar1 + 4;
+                dngOrderMask = dngOrderMask + 4;
             else
                 stratMask = stratMask + 2;
         }
         else
         {
             if (!showDungeonOptions)
-                sVar1 = sVar1 + 8;
+                dngOrderMask = dngOrderMask + 8;
             else
                 stratMask = stratMask + 4;
         }
@@ -442,7 +443,7 @@ _127:
         // Hide Talk to teddie and rise
         // 4 + 8
         if (!showDungeonOptions)
-            sVar1 = sVar1 + 12;
+            dngOrderMask = dngOrderMask + 12;
         else
             stratMask = stratMask + 6;
 
@@ -459,40 +460,31 @@ _127:
     // Hide Go to next floor if floor select is shown
     if (FLD_FUNCTION_0036() == 0 || showFloorSelect == true)
     {
-        sVar1 = sVar1 + 64;
+        dngOrderMask = dngOrderMask + 64;
     }
 
-    // Mask return to previous floor and entrance
-    sVar1 = sVar1 + 384;
+    // Mask return to previous floor
+    dngOrderMask = dngOrderMask + 128;
 
     // Keep Return to previous floor/entrance hidden if floor select is shown
-    if (FLD_FUNCTION_0037() == 1 && showFloorSelect == false)
+    if (showFloorSelect == false)
     {
-        // Unmask entrance
-        if (floor == 6 || floor == 21 || floor == 41 || floor == 61 || floor == 81 || floor == 101 || floor == 121 || floor == 123 || floor == 141 || floor == 161)
+        // Unmask previous floor and hide return to entrance if we're not on the first floor
+        if (!(floor == 6 || floor == 21 || floor == 41 || floor == 61 || floor == 81 || floor == 101 || floor == 121 || floor == 123 || floor == 141 || floor == 161))
         {
-            sVar1 = sVar1 - 256;
+            dngOrderMask = dngOrderMask - 128;
+            dngOrderMask = dngOrderMask + 1024;
         }
-        // Unmask floor
-        else
-        {
-            sVar1 = sVar1 - 128;
-        }
-    }
-    else if(showFloorSelect && floor % 20 != 0 && floor != 5)
-    {
-        // Unmask entrance if not at it
-        sVar1 = sVar1 - 256;
     }
 
     // Hide floor select
     if (!showFloorSelect || !BIT_CHK(6324))
-        sVar1 = sVar1 + 512;
+        dngOrderMask = dngOrderMask + 256;
     // Hide Goho-M
     if (!showGohom || showFloorSelect || !BIT_CHK(6324) ||
         (FLD_FUNCTION_0037() == 1 &&
          (floor == 6 || floor == 21 || floor == 41 || floor == 61 || floor == 81 || floor == 101 || floor == 121 || floor == 123 || floor == 141 || floor == 161)))
-        sVar1 = sVar1 + 32;
+        dngOrderMask = dngOrderMask + 32;
     // Hide OrganizeParty
     if (!EnableOrganizeParty() || !showOrganizeParty || !BIT_CHK(6324))
         stratMask = stratMask + 16;
@@ -500,7 +492,7 @@ _127:
     if (BIT_CHK(0 + 0x0400 + 0x0800 + 9) == 0 || !showFox || !BIT_CHK(6324) || (GET_FLOOR_ID() > 160 && GET_FLOOR_ID() < 180))
         stratMask = stratMask + 32;
     if (!BIT_CHK(6326) || saveAnywhere())
-        sVar1 = sVar1 + 1024;
+        dngOrderMask = dngOrderMask + 512;
 }
 
 void tomb_jump_hook()
