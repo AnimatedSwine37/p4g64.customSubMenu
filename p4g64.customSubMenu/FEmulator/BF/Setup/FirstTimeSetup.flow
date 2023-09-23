@@ -65,6 +65,13 @@ void MenuOptions()
 			if (!pageNum)
 			{
 				mask = 1504;
+				if(!ModMenuShown())
+				{
+					// Hide mod menu option
+					mask += 1;
+					// Show save anywhere on first page
+					mask -= 32;
+				}
 				SEL_CHK_PAD(10, 9);
 				SEL_CHK_PAD(11, 9);
 				SEL_CHK_PAD(5, 9);
@@ -73,6 +80,11 @@ void MenuOptions()
 			else
 			{
 				mask = 543;
+				if(!ModMenuShown())
+				{
+					// Hide save anywhere on second page
+					mask += 32;
+				}
 				SEL_CHK_PAD(10, 10);
 				SEL_CHK_PAD(11, 10);
 				SEL_CHK_PAD(5, 10);
@@ -92,7 +104,7 @@ void MenuOptions()
 			else
 			{
 				done = true;
-				if (!BIT_CHK(6321))
+				if (!ModMenuEnabled())
 				{
 					OPEN_MSG_WIN();
 					MSG(OptionsWarning);

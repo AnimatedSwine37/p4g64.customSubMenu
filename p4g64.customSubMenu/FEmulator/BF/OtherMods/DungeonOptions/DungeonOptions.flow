@@ -36,7 +36,7 @@ void entrance_jump_hook()
         mask = mask + 8;
     PLAY_SYS_SOUNDEFFECT(0, 3);
     SEL_CHK_PAD(14, 5);
-    if (!BIT_CHK(6321))
+    if (!ModMenuEnabled())
         SEL_CHK_PAD(12, 18);
     int selectedOption = ADV_SEL(15, YukikoEntranceSel + dungeon, mask);
 
@@ -139,7 +139,7 @@ _100:
         }
         // Sets mask
         SET_MASK(dngOrderMask);
-        if (!BIT_CHK(6321))
+        if (!ModMenuEnabled())
             SEL_CHK_PAD(12, 18);
         SEL_CHK_PAD(14, 11);
         int dungeon = GetDungeon();
@@ -273,7 +273,7 @@ void StrategizeMenu()
 {
     SET_MASK(stratMask);
     SEL_CHK_PAD(14, 6);
-    if (!BIT_CHK(6321))
+    if (!ModMenuEnabled())
         SEL_CHK_PAD(12, 18);
     int selection = SEL(Strategize);
 
@@ -507,7 +507,7 @@ void tomb_jump_hook()
         var24 = var24 + 64;
     PLAY_SYS_SOUNDEFFECT(0, 3);
     SEL_CHK_PAD(14, 7);
-    if (!BIT_CHK(6321))
+    if (!ModMenuEnabled())
         SEL_CHK_PAD(12, 18);
     int var23 = ADV_SEL(12, TOMB_SEL_HOOK, var24);
 
@@ -589,7 +589,7 @@ void liqueur_jump_hook()
     if (!BIT_CHK(6326) || saveAnywhere())
         mask = mask + 4;
     SEL_CHK_PAD(14, 3);
-    if (!BIT_CHK(6321))
+    if (!ModMenuEnabled())
         SEL_CHK_PAD(12, 18);
     int var26 = ADV_SEL(15, LIQUEUR_SEL_HOOK, mask);
 
@@ -636,7 +636,7 @@ void studio_jump_hook()
 
     PLAY_SYS_SOUNDEFFECT(0, 3);
     SEL_CHK_PAD(14, 6);
-    if (!BIT_CHK(6321))
+    if (!ModMenuEnabled())
         SEL_CHK_PAD(12, 18);
     int var20 = ADV_SEL(3, SHOP_SEL_HOOK, var21);
 

@@ -80,7 +80,7 @@ void order_party_hook()
         goto restart;
     }
 
-    if (!BIT_CHK(6321))
+    if (!ModMenuEnabled())
     {
         options = false;
         if ( GET_FLOOR_ID() > 0)

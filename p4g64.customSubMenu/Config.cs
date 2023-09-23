@@ -5,60 +5,10 @@ namespace p4g64.customSubMenu.Configuration
 {
     public class Config : Configurable<Config>
     {
-        /*
-            User Properties:
-                - Please put all of your configurable properties here.
-
-            By default, configuration saves as "Config.json" in mod user config folder.    
-            Need more config files/classes? See Configuration.cs
-
-            Available Attributes:
-            - Category
-            - DisplayName
-            - Description
-            - DefaultValue
-
-            // Technically Supported but not Useful
-            - Browsable
-            - Localizable
-
-            The `DefaultValue` attribute is used as part of the `Reset` button in Reloaded-Launcher.
-        */
-
-        [DisplayName("String")]
-        [Description("This is a string.")]
-        [DefaultValue("Default Name")]
-        public string String { get; set; } = "Default Name";
-
-        [DisplayName("Int")]
-        [Description("This is an int.")]
-        [DefaultValue(42)]
-        public int Integer { get; set; } = 42;
-
-        [DisplayName("Bool")]
-        [Description("This is a bool.")]
-        [DefaultValue(true)]
-        public bool Boolean { get; set; } = true;
-
-        [DisplayName("Float")]
-        [Description("This is a floating point number.")]
-        [DefaultValue(6.987654F)]
-        public float Float { get; set; } = 6.987654F;
-
-        [DisplayName("Enum")]
-        [Description("This is an enumerable.")]
-        [DefaultValue(SampleEnum.ILoveIt)]
-        public SampleEnum Reloaded { get; set; } = SampleEnum.ILoveIt;
-
-        public enum SampleEnum
-        {
-            NoOpinion,
-            Sucks,
-            IsMediocre,
-            IsOk,
-            IsCool,
-            ILoveIt
-        }
+        [DisplayName("Show Mod Menu")]
+        [Description("If enabled you will be able to use the mod menu (you still need to enable it in the in-game options).\nNote that mod menu is only meant for mod developers, if you use it and break your save you won't get help!")]
+        [DefaultValue(false)]
+        public bool ShowModMenu { get; set; } = false;
     }
 
     /// <summary>

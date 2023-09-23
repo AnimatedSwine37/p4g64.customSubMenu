@@ -1,4 +1,5 @@
-﻿using p4g64.customSubMenu.Configuration;
+﻿using BF.File.Emulator.Interfaces;
+using p4g64.customSubMenu.Configuration;
 using p4g64.customSubMenu.Template;
 using Reloaded.Hooks.ReloadedII.Interfaces;
 using Reloaded.Mod.Interfaces;
@@ -50,14 +51,21 @@ namespace p4g64.customSubMenu
             _configuration = context.Configuration;
             _modConfig = context.ModConfig;
 
+            Utils.Initialise(_logger, _configuration);
 
-            // For more information about this template, please see
-            // https://reloaded-project.github.io/Reloaded-II/ModTemplate/
+            var bfEmulatorController = _modLoader.GetController<IBfEmulator>();
+            if (bfEmulatorController == null || !bfEmulatorController.TryGetTarget(out var bfEmulator))
+            {
+                Utils.LogError($"Unable to get controller for BF Emulator, stuff won't work :(");
+                return;
+            }
 
-            // If you want to implement e.g. unload support in your mod,
-            // and some other neat features, override the methods in ModBase.
+            var modDir = _modLoader.GetDirectoryForModId(_modConfig.ModId);
+            var flowFile = Path.Combine(modDir, "BF", $"{(_configuration.ShowModMenu ? "Show" : "Hide")}ModMenu.flow");
 
-            // TODO: Implement some mod logic
+            bfEmulator.AddFile(flowFile, "field.flow");
+            bfEmulator.AddFile(flowFile, "scheduler_04.flow");
+            bfEmulator.AddFile(flowFile, "scheduler_04.flow");
         }
 
         #region Standard Overrides

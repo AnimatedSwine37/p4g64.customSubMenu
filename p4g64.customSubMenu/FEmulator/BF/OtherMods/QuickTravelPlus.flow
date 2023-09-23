@@ -138,7 +138,7 @@ void StreetOrder(bool calendar, bool friend, bool save)
 	if (!save || saveAnywhere() || saveAnywhere())
 		streetMask = streetMask + 128;
 	begin:
-	if (!BIT_CHK(6321))
+	if (!ModMenuEnabled())
 		SEL_CHK_PAD(12, 18);
 	SEL_CHK_PAD(14, 8);
 	int street = ADV_SEL( Street_Text, Street, streetMask );
@@ -293,7 +293,7 @@ void SchoolOrder(bool calendar, bool friend, bool save)
 	if (!save || saveAnywhere())
 		schoolMask = schoolMask + 256;
 	begin:
-	if (!BIT_CHK(6321))
+	if (!ModMenuEnabled())
 		SEL_CHK_PAD(12, 18);
 	SEL_CHK_PAD(14, 9);
 	int school = ADV_SEL( School_Text, School, schoolMask );
@@ -415,7 +415,7 @@ void NightOrder(bool calendar, bool friend, bool save)
 	if (!save || saveAnywhere())
 		nightMask = nightMask + 64;
 	begin:
-	if (!BIT_CHK(6321))
+	if (!ModMenuEnabled())
 		SEL_CHK_PAD(12, 18);
 	SEL_CHK_PAD( 14, 7 );
 	int street = ADV_SEL( Street_Text, StreetNight, nightMask );

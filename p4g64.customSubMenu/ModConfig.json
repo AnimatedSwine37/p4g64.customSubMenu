@@ -14,7 +14,7 @@
   "ReleaseMetadataFileName": "p4g64.customSubMenu.ReleaseMetadata.json",
   "PluginData": {},
   "IsUniversalMod": false,
-  "ModDependencies": [ "p5rpc.modloader" ],
+  "ModDependencies": [ "p5rpc.modloader", "reloaded.universal.fileemulationframework.bf" ],
   "OptionalDependencies": [],
   "SupportedAppId": ["p4g.exe"],
   "ProjectUrl": ""
