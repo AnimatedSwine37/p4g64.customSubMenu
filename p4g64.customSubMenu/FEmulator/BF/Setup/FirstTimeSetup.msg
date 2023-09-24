@@ -1,8 +1,12 @@
 [msg SquareMenuConfig]
-[f 0 5 -258][f 2 1][f 0 1 1]Custom Sub Menu Setup[n]
-[f 0 1 0]Thanks for trying the Custom Sub Menu mod!
-[n]Please choose which features you'd like to use.
-[n]You can always change these settings later.[f 1 1][e]
+[s][clr 1]Custom Sub Menu Setup[clr 0]
+[n]Please select the features you would like to use.
+[n]The recommended options are enabled by default.[n][w][e]
+
+[s][clr 1]Custom Sub Menu Setup[clr 0]
+[n]If you change your mind later, don't worry!
+[n]These settings can be changed at any time
+[n]during normal gameplay.[n][w][e]
 
 [sel ToggleMenu]
 [f 0 5 -258][f 2 1]On[e]
