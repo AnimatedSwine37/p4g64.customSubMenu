@@ -1,5 +1,5 @@
 # Custom Sub Menu
-A collection of mods for P4G Steam from multiple creators centered around the use of the sub menu. (Also on [GameBanana](https://gamebanana.com/mods/470352)!)
+A collection of mods for P4G Steam from multiple creators centred around the use of the sub menu. (Also on [GameBanana](https://gamebanana.com/mods/470352)!)
 
 ## Features
 ### Quick Travel Plus
