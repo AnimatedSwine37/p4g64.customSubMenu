@@ -32,12 +32,9 @@ int Flag_Menu()
 			break;
 		case 3:
 			if(page == 0)
-				EditMemory();
+				KillQuests();
 			else
 				ToggleHUD();
-			break;
-		case 4:
-			KillQuests();
 			break;
 		case 17:
 			return -1;

@@ -91,7 +91,6 @@
 [f 0 5 -258][f 2 1]Edit Flag[e]
 [f 0 5 -258][f 2 1]Mass Flag Edit[e]
 [f 0 5 -258][f 2 1]Edit Count[e]
-[f 0 5 -258][f 2 1]Edit Memory[e]
 [f 0 5 -258][f 2 1]Complete All Quests[e]
 
 [sel Flag_Menu_2]
