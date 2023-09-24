@@ -12,11 +12,6 @@
 [f 0 5 -258][f 2 1]Velvet Room[e]
 [f 0 5 -258][f 2 1]Cancel[e]
 
-[sel SEL_BIKE_hooked]
-[f 0 5 -258][f 2 1]Ride around the neighborhood ([f 2 4 0]/3)[e]
-[f 0 5 -258][f 2 1]Take a long ride ([f 2 4 1]/3)[e]
-[f 0 5 -258][f 2 1]Don't ride[e]
-
 [msg MSG_MARIE_VELVET_IN [Marie]]
 [f 0 5 -258][f 2 1][f 4 6 60 1 0 1]Oh, you're going in? Then I'll go, too.[n][f 1 1][e]
 
