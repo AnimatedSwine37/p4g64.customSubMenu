@@ -316,7 +316,7 @@ function Get-Common-Publish-Args {
     )
 	
 	$arguments = "--modfolder `"$publishBuildDirectory`" --packagename `"$PackageName`""
-    $arguments += ' --includeregexes "ModConfig\.json", "Enums\.json", "\.deps\.json", "\.runtimeconfig\.json"'
+    $arguments += ' --includeregexes "\.json"'
 	if ($ChangelogPath) {
         $arguments += " --changelogpath `"$changelogFullPath`""
 	}
