@@ -1,7 +1,9 @@
+import("DungeonOptions/DungeonFloorSelect.msg");
 
 // Direct commands
 void f020_001_init_hook()
 {
+    FloorSelectUnlocked();
     int var0 = 0;
     int var1 = 0;
     
@@ -73,4 +75,36 @@ void DefaultDirectCommands()
 		SET_ORDER(7, 4);
 		SET_ORDER(8, 4);
     }
+}
+
+void FloorSelectUnlocked()
+{
+    if(!BIT_CHK(6331)) return; // floor select not enabled
+    int dungeon = GetDungeonByDate() - 1;
+    if(dungeon < 0)
+        return;
+    if(!BIT_CHK(6336 + dungeon))
+    {
+        HELP_MSG(YukikoTravelAvailable + dungeon);
+        BIT_ON(6336 + dungeon);
+    }
+}
+
+int GetDungeonByDate()
+{
+    if(CHECK_TIME_SPAN(4, 12, 4, 29))
+        return Dungeon.Yukiko;
+    else if(CHECK_TIME_SPAN(4, 30, 6, 4))
+        return Dungeon.Kanji;
+    else if(CHECK_TIME_SPAN(6, 5, 7, 9))
+        return Dungeon.Rise;
+    else if(CHECK_TIME_SPAN(7, 10, 8, 12))
+        return Dungeon.Mitsuo;
+    else if(CHECK_TIME_SPAN(8, 13, 10, 5))
+        return Dungeon.Naoto;
+    else if(CHECK_TIME_SPAN(10, 6, 11, 20))
+        return Dungeon.Nanako;
+    else if(CHECK_TIME_SPAN(11, 21, 12, 26))
+        return Dungeon.Adachi;
+    return Dungeon.Izanami;
 }
