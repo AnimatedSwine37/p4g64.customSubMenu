@@ -162,7 +162,7 @@ param (
     $UseScriptDirectory=$True,
 
     ## => User Config <= ## 
-    $ProjectPath = "p4g64.customSubMenu.csproj",
+    $ProjectPath = "p4g64.customSubMenu/p4g64.customSubMenu.csproj",
     $PackageName = "p4g64.customSubMenu",
     $PublishOutputDir = "Publish/ToUpload",
 
