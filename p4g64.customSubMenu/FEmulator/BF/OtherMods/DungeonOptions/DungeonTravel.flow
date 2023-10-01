@@ -345,7 +345,7 @@ int GetDungeon()
 		return Dungeon.Mitsuo;
 	
 	else if (floor >= 80 && floor < 90)
-		return Dungeon.Mitsuo;
+		return Dungeon.Naoto;
 	
 	else if (floor >= 100 && floor < 111)
 		return Dungeon.Nanako;
