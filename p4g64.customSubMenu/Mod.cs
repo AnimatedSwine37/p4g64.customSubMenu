@@ -3,6 +3,7 @@ using p4g64.customSubMenu.Configuration;
 using p4g64.customSubMenu.Template;
 using Reloaded.Hooks.ReloadedII.Interfaces;
 using Reloaded.Mod.Interfaces;
+using Reloaded.Mod.Interfaces.Internal;
 
 namespace p4g64.customSubMenu
 {
@@ -41,6 +42,7 @@ namespace p4g64.customSubMenu
         /// The configuration of the currently executing mod.
         /// </summary>
         private readonly IModConfig _modConfig;
+        private IBfEmulator _bfEmulator;
 
         public Mod(ModContext context)
         {
@@ -54,18 +56,44 @@ namespace p4g64.customSubMenu
             Utils.Initialise(_logger, _configuration);
 
             var bfEmulatorController = _modLoader.GetController<IBfEmulator>();
-            if (bfEmulatorController == null || !bfEmulatorController.TryGetTarget(out var bfEmulator))
+            if (bfEmulatorController == null || !bfEmulatorController.TryGetTarget(out _bfEmulator))
             {
                 Utils.LogError($"Unable to get controller for BF Emulator, stuff won't work :(");
                 return;
             }
 
+            // Set whether mod menu should be shown or hidden
             var modDir = _modLoader.GetDirectoryForModId(_modConfig.ModId);
             var flowFile = Path.Combine(modDir, "BF", $"{(_configuration.ShowModMenu ? "Show" : "Hide")}ModMenu.flow");
 
-            bfEmulator.AddFile(flowFile, "field.flow");
-            bfEmulator.AddFile(flowFile, "scheduler_04.flow");
-            bfEmulator.AddFile(flowFile, "scheduler_04.flow");
+            _bfEmulator.AddFile(flowFile, "field.flow");
+            _bfEmulator.AddFile(flowFile, "scheduler_04.flow");
+            _bfEmulator.AddFile(flowFile, "scheduler_04.flow");
+
+
+            // Apply Kuma patch
+            var mods = _modLoader.GetActiveMods();
+            if (mods.Any(x => x.Generic.ModId == "p4g64.kuma"))
+            {
+                Utils.Log("Found \"Replace Teddie With Kuma\", enabling compatibility mode.");
+                _bfEmulator.AddDirectory(Path.Combine(modDir, "BF", "Kuma"));
+            }
+            else
+            {
+                _bfEmulator.AddDirectory(Path.Combine(modDir, "BF", "Teddie"));
+                _modLoader.ModLoaded += ModLoaded;
+            }
+
+        }
+
+        private void ModLoaded(IModV1 mod, IModConfigV1 modConfig)
+        {
+            if (modConfig.ModId == "p4g64.kuma")
+            {
+                Utils.Log("Found \"Replace Teddie With Kuma\", enabling compatibility mode.");
+                var modDir = _modLoader.GetDirectoryForModId(_modConfig.ModId);
+                _bfEmulator.AddDirectory(Path.Combine(modDir, "BF", "Kuma"));
+            }
         }
 
         #region Standard Overrides

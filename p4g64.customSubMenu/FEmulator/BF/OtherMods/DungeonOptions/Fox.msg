@@ -31,12 +31,6 @@ an item that can return it to safety.[n][f 1 1][e]
 [f 0 5 -258][f 2 1]> It followed you all the way here[n]after all...[n][f 1 1][e]
 [f 0 5 -258][f 2 1]> It seems to be happy to come along,[n]even in this strange atmosphere...[n][f 1 1][e]
 
-[msg FOX_FIRST_KUMA [Teddie]]
-[f 0 5 -258][f 2 1][f 4 6 8 3 0 1]Hmm!? What's that weird thing with[n]the red apron?[n][f 1 1][e]
-[f 0 5 -258][f 2 1][f 4 6 8 5 0 1]Huh? Sensei's helper?[n][f 1 1][e]
-[f 0 5 -258][f 2 1]Amazing! Sensei sure knows some[n]neat people![n][f 1 1][e]
-[f 0 5 -258][f 2 1][f 4 6 8 2 0 1]Nice to meet you, Mr. Fox![n]Let's both do our best![n][f 1 1][e]
-
 [msg FOX_TALK_BAD [Fox]]
 [f 0 5 -258][f 2 1][f 4 6 9 1 0 1]Grrrr...[n][f 1 1][e]
 

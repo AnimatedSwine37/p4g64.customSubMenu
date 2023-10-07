@@ -58,8 +58,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<Folder Include="BF\Kuma\" />
 		<Folder Include="FEmulator\BF\OtherMods\" />
-		<Folder Include="BF\" />
 	</ItemGroup>
 
 	<ItemGroup>

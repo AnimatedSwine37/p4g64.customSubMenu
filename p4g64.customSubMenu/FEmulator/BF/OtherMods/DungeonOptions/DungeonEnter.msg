@@ -1,6 +1,3 @@
-[msg CHECK_KUMA [Teddie]]
-[s][bup 8 1 0 1]Are you sure you wanna go alone?[n][w][e]
-
 [msg CHECK_RISE [Rise]]
 [s][bup 5 10 65535 1]Senpai, are you sure about going[n]in alone?[n][w][e]
 
@@ -10,18 +7,6 @@
 
 [msg Marie_GO_RISE_2 [Rise]]
 [s][bup 5 13 65535 1]Senpai, come back safely. Promise me...[n][w][e]
-
-[msg GO_KUMA_YUKIKO [Teddie]]
-[s][bup 8 1 0 1]Be careful![n][w][e]
-
-[msg Yukiko_GO_KUMA [Teddie]]
-[s][bup 8 1 0 1]Let's go![n][w][e]
-
-[msg Kanji_GO_KUMA [Teddie]]
-[s][bup 8 1 0 1]Be careful![n][w][e]
-
-[msg Rise_GO_KUMA [Teddie]]
-[s][bup 8 1 0 1]Good luck![n][w][e]
 
 [msg Yukiko_GO_RISE [Rise]]
 [s][bup 5 10 65535 1]Okay, let's go![n][w][e]

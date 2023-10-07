@@ -234,7 +234,10 @@ _100:
         else if (var33 == 10)
         {
             SEL_CHK_PAD(14, 1);
-            MSG(YukikoReturnConfirmTeddie + BIT_CHK(52) + dungeon * 2);
+            if(BIT_CHK(52))
+                MSG(YukikoReturnConfirmRise + dungeon);
+            else
+                MSG(YukikoReturnConfirmTeddie + dungeon);
             if(SEL(YESNO_SEL) == 0)
             {
                 ToEntrance();

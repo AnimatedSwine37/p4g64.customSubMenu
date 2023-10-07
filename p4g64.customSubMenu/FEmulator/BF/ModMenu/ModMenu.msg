@@ -144,16 +144,6 @@
 [msg BOSS_SEL1_Text]
 [f 0 5 -258][f 2 1]Boss Select (Page 1/2)[n][f 1 1][e]
 
-[sel BOSS_SEL1]
-[f 0 5 -258][f 2 1]???[e]
-[f 0 5 -258][f 2 1]Shadow Yosuke[e]
-[f 0 5 -258][f 2 1]Shadow Chie[e]
-[f 0 5 -258][f 2 1]Shadow Yukiko[e]
-[f 0 5 -258][f 2 1]Shadow Kanji[e]
-[f 0 5 -258][f 2 1]Shadow Rise[e]
-[f 0 5 -258][f 2 1]Shadow Teddie[e]
-[f 0 5 -258][f 2 1]Shadow Mitsuo[e]
-
 [msg BOSS_SEL2_Text]
 [f 0 5 -258][f 2 1]Boss Select (Page 2/2)[n][f 1 1][e]
 
@@ -199,15 +189,6 @@
 [f 0 5 -258][f 2 1]Rise (Romance)[e]
 [f 0 5 -258][f 2 1]Sayoko[e]
 [f 0 5 -258][f 2 1]Shu[e]
-
-[sel SocialLinkSel4]
-[f 0 5 -258][f 2 1]The Seekers of Truth[e]
-[f 0 5 -258][f 2 1]Teddie[e]
-[f 0 5 -258][f 2 1]Yosuke[e]
-[f 0 5 -258][f 2 1]Yukiko[e]
-[f 0 5 -258][f 2 1]Yukiko (Romance)[e]
-[f 0 5 -258][f 2 1]Yumi[e]
-[f 0 5 -258][f 2 1]Yumi (Romance)[e]
 
 [msg SL_SEL_Text1]
 [f 0 5 -258][f 2 1]S.Link Select (Page 1/4)[n][f 1 1][e]
