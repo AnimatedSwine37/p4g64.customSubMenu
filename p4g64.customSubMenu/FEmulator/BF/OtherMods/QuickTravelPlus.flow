@@ -16,7 +16,7 @@ void field_order_hook()
 	// Play the sub menu opening sound
 	PLAY_SYS_SOUNDEFFECT( 0, 3 );
 
-	bool calendar = BIT_CHK(6323);
+	bool calendar = BIT_CHK(6323) && !CHECK_TIME_SPAN(4, 11, 4, 17);
 	bool friend = BIT_CHK(6325);
 	bool plus = BIT_CHK(6322);
 	bool save = BIT_CHK(6326);

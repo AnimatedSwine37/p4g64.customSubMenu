@@ -2,7 +2,7 @@ import ( "MobileCalendar.msg" );
 
 void school_order_hook()
 {
-	bool calendar = BIT_CHK(6323);
+	bool calendar = BIT_CHK(6323) && !CHECK_TIME_SPAN(4, 11, 4, 17);
 	bool friend = BIT_CHK(6325);
 	bool save = BIT_CHK(6326);
 	int var54 = 327;
@@ -104,7 +104,7 @@ void school_order_hook()
 
 void myhouse_order_hook()
 {
-	bool calendar = BIT_CHK(6323);
+	bool calendar = BIT_CHK(6323) && !CHECK_TIME_SPAN(4, 11, 4, 17);
 	bool friend = BIT_CHK(6325);
 	bool save = BIT_CHK(6326);
     int var58 = 327;
@@ -230,7 +230,7 @@ void myhouse_order_hook()
 
 void street_order_hook()
 {
-	bool calendar = BIT_CHK(6323);
+	bool calendar = BIT_CHK(6323) && !CHECK_TIME_SPAN(4, 11, 4, 17);
 	bool friend = BIT_CHK(6325);
 	bool save = BIT_CHK(6326);
     int var62 = 0;
@@ -501,7 +501,7 @@ void night_place_order_exit_hook()
 
 void sel_mask_night_play_hook()
 {
-	bool calendar = BIT_CHK(6323);
+	bool calendar = BIT_CHK(6323) && !CHECK_TIME_SPAN(4, 11, 4, 17);
 	bool friend = BIT_CHK(6325);
 	bool save = BIT_CHK(6326);
     int var139 = 0;
@@ -556,7 +556,7 @@ void sel_mask_night_play_hook()
 
 void gms_order_hook()
 {
-	bool calendar = BIT_CHK(6323);
+	bool calendar = BIT_CHK(6323) && !CHECK_TIME_SPAN(4, 11, 4, 17);
 	bool friend = BIT_CHK(6325);
 	bool save = BIT_CHK(6326);
 	int var66 = 327;
@@ -607,7 +607,7 @@ void gms_order_hook()
 
 void embank_order_hook()
 {
-	bool calendar = BIT_CHK(6323);
+	bool calendar = BIT_CHK(6323) && !CHECK_TIME_SPAN(4, 11, 4, 17);
 	bool friend = BIT_CHK(6325);
 	bool save = BIT_CHK(6326);
 	int var70 = 0;
@@ -736,7 +736,7 @@ void embank_order_hook()
 
 void station_order_hook()
 {
-	bool calendar = BIT_CHK(6323);
+	bool calendar = BIT_CHK(6323) && !CHECK_TIME_SPAN(4, 11, 4, 17);
 	bool friend = BIT_CHK(6325);
 	bool save = BIT_CHK(6326);
     int var74 = 327;
@@ -822,7 +822,7 @@ void station_order_hook()
 
 void schoolroad_order_hook()
 {
-	bool calendar = BIT_CHK(6323);
+	bool calendar = BIT_CHK(6323) && !CHECK_TIME_SPAN(4, 11, 4, 17);
 	bool friend = BIT_CHK(6325);
 	bool save = BIT_CHK(6326);
 	int var78 = 327;
@@ -867,7 +867,7 @@ void schoolroad_order_hook()
 
 void snowmt_order_hook()
 {
-	bool calendar = BIT_CHK(6323);
+	bool calendar = BIT_CHK(6323) && !CHECK_TIME_SPAN(4, 11, 4, 17);
 	bool friend = BIT_CHK(6325);
 	bool save = BIT_CHK(6326);
 	int var82 = 327;
