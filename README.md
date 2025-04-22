@@ -4,7 +4,7 @@ A collection of mods for P4G Steam from multiple creators centred around the use
 ## Supported Languages
 This mod fully supports the following languages:
 - English
-- Spanish (translation by @Artur16211)
+- Spanish (translation by [Artur16211](https://github.com/Artur16211))
 
 As long as you have version 2.9.2 or later of [Persona Essentials](https://github.com/Sewer56/p5rpc.modloader) the correct files for should automatically be loaded based on your in game language settings (e.g. in Steam). If your language is not directly supported, English files will try to be used, how well this works may vary based on the language.
 
