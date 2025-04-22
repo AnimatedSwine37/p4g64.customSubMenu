@@ -56,12 +56,7 @@
 		<PackageReference Include="Reloaded.Mod.Interfaces" Version="2.3.0" ExcludeAssets="runtime" />
 		<PackageReference Include="Reloaded.SharedLib.Hooks" Version="1.9.0" />
 	</ItemGroup>
-
-	<ItemGroup>
-		<Folder Include="BF\Kuma\" />
-		<Folder Include="FEmulator\BF\OtherMods\" />
-	</ItemGroup>
-
+	
 	<ItemGroup>
 		<ProjectReference Include="..\Submodules\FileEmulationFramework\Emulator\Interfaces\BF.File.Emulator.Interfaces\BF.File.Emulator.Interfaces.csproj" />
 	</ItemGroup>
