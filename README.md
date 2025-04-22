@@ -1,6 +1,28 @@
 # Custom Sub Menu
 A collection of mods for P4G Steam from multiple creators centred around the use of the sub menu. (Also on [GameBanana](https://gamebanana.com/mods/470352)!)
 
+## Supported Languages
+This mod fully supports the following languages:
+- English
+- Spanish (translation by @Artur16211)
+
+As long as you have version 2.9.2 or later of [Persona Essentials](https://github.com/Sewer56/p5rpc.modloader) the correct files for should automatically be loaded based on your in game language settings (e.g. in Steam). If your language is not directly supported, English files will try to be used, how well this works may vary based on the language.
+
+### Adding additional languages
+If you are interested in adding support for another language have a look at the `FEmulator\L10N\es` folder and copy its structure, replacing `es` with the appropriate langugae id from the [Localisation Framework documentation](https://github.com/AnimatedSwine37/Reloaded.Universal.Localisation.Framework?tab=readme-ov-file#supported-languages). 
+
+The msg files should be straight forward to translate, they are just plain text files that you can edit with any text editor (e.g. notepad).
+
+The `MSG.TBL` file needs to be hex edited using [010 Editor](https://www.sweetscape.com/010editor/) (free trial) with the p4g_tbl template from the [010 Templates Repo](https://github.com/tge-was-taken/010-Editor-Templates). The following skill names need to be changed:
+- 619 - "Off"
+- 620 - "On"
+- 621 - "" (empty string)
+- 622 - "+"
+
+"On" and "Off" are used to indicate whether each option is turned on or not when configuring the parts of custom sub menu you want to use. "+" and "" are used by find a friend to indicate whether a social link is ready to rank up.
+
+If you need any assistance please feel free to reach out to me (@animatedswine on discord) or [make an issue](https://github.com/AnimatedSwine37/p4g64.customSubMenu/issues) on this repo. I'd love to support as many languages as possible!
+
 ## Features
 ### Quick Travel Plus
 by [Tekka](https://gamebanana.com/members/1739579) and [ShrineFox](https://gamebanana.com/members/1568750)
