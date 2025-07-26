@@ -1,3 +1,13 @@
+# 1.1.1
+- Slightly improved support for every language (except Traditional Chinese)
+  - Every language now has a MSG.TBL with the strings for "Off", "On", and "+" added to them
+  - This means that the options and find a friend menu will show correctly instead of displaying placeholder values like BLANK
+
+Note that English and Spanish are still the only languages with full support. For other languages the menus still display in English. This update just slightly improve usability of them. 
+If you're interested in making a proper translation please reach out :)
+
+When running in the Traditional Chinese language some of the mods files do not compile at all, so it's a bigger problem than the other languages and will not work at all.
+
 # 1.1.0
 - @Artur16211 Added a full Spanish translation for the mod!
   - Requires [Persona Essentials](https://github.com/Sewer56/p5rpc.modloader) version 2.9.2 or later
