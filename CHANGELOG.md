@@ -1,3 +1,7 @@
+# 1.1.2
+- Fixed "Marukyu" incorrectly being written as "Marakyu" in a number of messages
+  - This has been an issue with the mod since its 32 bit version (and was reported on the 32 bit page [here](https://github.com/ShrineFox/Persona-4-Golden-Mod-Menu/issues/33)). Idk how it was never noticed before lol
+
 # 1.1.1
 - Slightly improved support for every language (except Traditional Chinese)
   - Every language now has a MSG.TBL with the strings for "Off", "On", and "+" added to them
