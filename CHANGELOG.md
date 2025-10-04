@@ -1,3 +1,7 @@
+# 1.1.3
+- Fixed Yosuke's suggestion to leave the TV world when going into Yukiko's castle with low SP playing when it shouldn't
+  - This was due to an old bug in script tool's decompiler which caused missing brackets around an or statement
+
 # 1.1.2
 - Fixed "Marukyu" incorrectly being written as "Marakyu" in a number of messages
   - This has been an issue with the mod since its 32 bit version (and was reported on the 32 bit page [here](https://github.com/ShrineFox/Persona-4-Golden-Mod-Menu/issues/33)). Idk how it was never noticed before lol
