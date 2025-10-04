@@ -81,7 +81,7 @@ void f023_001_init_hook()
         {
             party_organize();
         }
-        else if ( BIT_CHK( 0 + 0x0400 + 0x0800 + 629 ) == 0 && BIT_CHK( 0 + 17 ) == 0 && CHECK_TIME_SPAN( 4, 18, 4, 20 ) == 1 && GET_CUR_SP( 1 ) < 50 || GET_CUR_SP( 2 ) < 50 || GET_CUR_SP( 3 ) < 50 )
+        else if ( ( ( ( BIT_CHK( 3701 ) == 0 ) && ( BIT_CHK( 17 ) == 0 ) ) && ( CHECK_TIME_SPAN( 4, 18, 4, 20 ) == 1 ) ) && ( ( ( GET_CUR_SP( PartyUnit.Protagonist ) < 50 ) || ( GET_CUR_SP( PartyUnit.Yosuke ) < 50 ) ) || ( GET_CUR_SP( PartyUnit.Chie ) < 50 ) ) )
         {
             BIT_ON( 0 + 0x0400 + 0x0800 + 629 );
             OPEN_MSG_WIN();
