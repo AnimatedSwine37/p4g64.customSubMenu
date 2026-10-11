@@ -627,6 +627,9 @@ void embank_order_hook()
 		generate_selection_mask();
 		if (!friend || numSelectionsRemoved == 28 || (BIT_CHK( 0 + 0x0400 + 0x0800 + 2 ) || BIT_CHK( 0 + 0x0400 + 1726 ) && GET_TIME_OF_DAY() == 5))
 			var73 = var73 + 16;
+
+		if (!save || saveAnywhere())
+			var73 = var73 + 32;
 		
 		if (!ModMenuEnabled())
 			SEL_CHK_PAD(12, 18);
