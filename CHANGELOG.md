@@ -1,3 +1,8 @@
+# 1.1.4
+- Fixed a bug where the Save option would show up at the Riverbank at night even if you had Save Anywhere disabled.
+  - This only happened if you had Quick Travel Plus disabled
+  - Thanks to felps1 on GameBanana for reporting this bug :)
+
 # 1.1.3
 - Fixed Yosuke's suggestion to leave the TV world when going into Yukiko's castle with low SP playing when it shouldn't
   - This was due to an old bug in script tool's decompiler which caused missing brackets around an or statement
